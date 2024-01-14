@@ -13,7 +13,6 @@ struct NewsDetailView: View {
     @ObservedObject var viewModel: NewsViewModel
     @State private var isWebViewPresented: Bool = false
     @State private var isShareSheetPresented: Bool = false
-//    @State private var isFavorite: Bool = false
     @ObservedObject var favoritesViewModel: FavoritesViewModel
     
     
@@ -25,13 +24,10 @@ struct NewsDetailView: View {
                 Spacer()
 
                 Button(action: {
-                    // Favorilere ekleme veya çıkarma işlemi
                     viewModel.isFavorite.toggle()
                     viewModel.toggleFavoriteStatus(for: news)
-//                    favoritesViewModel.updateFavoriteStatus(for: news, isFavorite: isFavorite)
+
                 }) {
-//                    Image(systemName: isFavorite ? "heart.fill" : "heart")
-//                        .foregroundColor(isFavorite ? .red : .gray)
                     Image(systemName: viewModel.isFavorite ? "heart.fill" : "heart")
                         .foregroundColor(viewModel.isFavorite ? .red : .gray)
                         .imageScale(.large)
@@ -60,6 +56,32 @@ struct NewsDetailView: View {
                     .frame(maxWidth: .infinity, maxHeight: 300)
                     .clipped()
             }
+            // Haber kaynağı ve tarihi
+            HStack {
+                // Kaynak ikonu (örneğin, "newspaper.fill" simgesi)
+                Image(systemName: "newspaper.fill")
+                    .foregroundColor(.gray)
+                    .imageScale(.small)
+                    
+
+                // Kaynak metni
+                Text(news.source)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+
+                Spacer()
+
+                // Tarih ikonu (örneğin, "clock.fill" simgesi)
+                Image(systemName: "clock.fill")
+                    .foregroundColor(.gray)
+                    .imageScale(.small)
+
+                // Tarih metni
+                Text(formattedDate(from: news.date))
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+            }.padding()
+
 
             // Haber başlığı
             Text(news.title)
@@ -71,20 +93,9 @@ struct NewsDetailView: View {
             Text(news.description)
                 .font(.body)
                 .padding()
+                .lineLimit(7)
 
-            // Haber kaynağı ve tarihi
-            HStack {
-                Text("Kaynak: \(news.source)")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-
-                Spacer()
-
-                Text("Tarih: \(formattedDate(from: news.date))")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-            }
-            .padding()
+            
 
             // "Haber Kaynağına Git" butonu
             Button(action: {
@@ -94,7 +105,7 @@ struct NewsDetailView: View {
                 Text("Haber Kaynağına Git")
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.brown)
                     .cornerRadius(8)
             }
             .padding()

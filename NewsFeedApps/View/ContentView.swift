@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         TabView {
             // İlk sekme
             NavigationView {
                 NewsListView(viewModel: NewsViewModel(newsService: NewsService(), favoritesViewModel: FavoritesViewModel()))
             }
             .tabItem {
-                Image(systemName: "house")
-                Text("Ana Sayfa")
+                Image(systemName: "newspaper")
+                Text("News")
             }
 
             // İkinci sekme
@@ -25,8 +26,10 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "star")
-                Text("Favoriler")
+                Text("Favorites")
             }
         }
+        .background(Color.yellow) // TabBar'ın arka plan rengini beyaz sarı yap
     }
 }
+

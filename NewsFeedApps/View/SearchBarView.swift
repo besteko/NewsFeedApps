@@ -14,12 +14,13 @@ struct SearchBarView: View {
     var body: some View {
         HStack {
             // Arama çubuğu
-            TextField("Haber ara...", text: $searchQuery)
+            TextField("Type a text", text: $searchQuery)
                 .padding(8)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
+                
 
-            // Arama butonu
+           // Arama butonu
             Button(action: {
                 onSearchButtonClicked()
             }) {

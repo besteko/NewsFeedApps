@@ -11,7 +11,22 @@ struct NewsListItemView: View {
     var news: NewsModel
 
     var body: some View {
-        HStack(alignment: .top) {
+        HStack {
+            // Haber başlığı ve açıklaması
+            VStack(alignment: .leading, spacing: 8) {
+                Text(news.title)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .lineLimit(1)
+                    
+
+                Text(news.description)
+                    .font(.subheadline)
+                    .foregroundColor(.brown)
+                    .lineLimit(3)
+            }
+           // .layoutPriority(1) // İçeriğin sığmasını sağlamak için
+
             // Haber resmi
             if let imageUrl = URL(string: news.imageUrl) {
                 URLImage(imageUrl) { image in
@@ -27,21 +42,6 @@ struct NewsListItemView: View {
                     .frame(width: 80, height: 80)
                     .cornerRadius(8)
             }
-
-            // Haber başlığı ve açıklaması
-            VStack(alignment: .leading, spacing: 8) {
-                Text(news.title)
-                    .font(.headline)
-                    .fontWeight(.bold)
-                    .lineLimit(2)
-
-                Text(news.description)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .lineLimit(3)
-            }
-            .padding(.trailing, 8)
-            .layoutPriority(1) // İçeriğin sığmasını sağlamak için
         }
         .padding(8)
         .background(Color.white)
@@ -49,3 +49,4 @@ struct NewsListItemView: View {
         .shadow(radius: 4)
     }
 }
+
