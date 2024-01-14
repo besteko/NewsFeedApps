@@ -10,7 +10,7 @@ import Alamofire
 
 class NewsService {
     func fetchNews(query: String, page: Int, completion: @escaping ([NewsModel]?) -> Void) {
-        let apiKey = "90f78b5e459f4557a6d285161db89387"
+        let apiKey = "c6e2fc65ce934e4fbd78b75a8a2993d5"
         let pageSize = 10 // Sayfa başına gösterilecek haber sayısı
         let startIndex = (page - 1) * pageSize
         let apiUrl = "https://newsapi.org/v2/everything?q=\(query)&page=\(page)&pagesize=\(pageSize)&apiKey=\(apiKey)"

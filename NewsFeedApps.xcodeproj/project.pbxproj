@@ -128,11 +128,11 @@
 			children = (
 				9A27C5F22B52C1A1007DADF5 /* NewsFeedAppsApp.swift */,
 				9A27C5F62B52C1A2007DADF5 /* Assets.xcassets */,
+				9A27C62C2B52C3FF007DADF5 /* Response */,
+				9A27C61C2B52C23F007DADF5 /* Models */,
 				9A27C6322B52C4C1007DADF5 /* ViewModels */,
 				9A27C62F2B52C47C007DADF5 /* View */,
-				9A27C62C2B52C3FF007DADF5 /* Response */,
 				9A27C6272B52C39A007DADF5 /* Services */,
-				9A27C61C2B52C23F007DADF5 /* Models */,
 				9A27C5F82B52C1A2007DADF5 /* Preview Content */,
 			);
 			path = NewsFeedApps;
