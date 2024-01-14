@@ -18,7 +18,6 @@ struct NewsListView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding()
-                
 
             // Arama çubuğu
             SearchBarView(searchQuery: $searchQuery, onSearchButtonClicked: {
@@ -30,24 +29,33 @@ struct NewsListView: View {
             .padding()
 
             // Haber listesi
-            List {
-                ForEach(viewModel.news, id: \.url) { newsItem in
-                    NavigationLink(destination: NewsDetailView(news: newsItem, viewModel: NewsViewModel(newsService: NewsService(), favoritesViewModel: FavoritesViewModel(), newsModel: newsItem), favoritesViewModel: FavoritesViewModel())) {
-                        NewsListItemView(news: newsItem)
-                            .onAppear {
-                                // Eğer sona gelindiyse pagination çağrısı yap
-                                if newsItem == viewModel.news.last {
-                                    let query = searchQuery.isEmpty ? "besiktas" : searchQuery
-                                    viewModel.fetchNextPage(query: query)
+            ScrollView {
+                LazyVStack() {
+                    ForEach(viewModel.news, id: \.url) { newsItem in
+                        NavigationLink(destination: NewsDetailView(news: newsItem, viewModel: NewsViewModel(newsService: NewsService(), favoritesViewModel: FavoritesViewModel(), newsModel: newsItem), favoritesViewModel: FavoritesViewModel())) {
+                            NewsListItemView(news: newsItem)
+                                .onAppear {
+                                    // Eğer sona gelindiyse pagination çağrısı yap
+                                    if newsItem == viewModel.news.last {
+                                        let query = searchQuery.isEmpty ? "besiktas" : searchQuery
+                                        viewModel.fetchNextPage(query: query)
+                                    }
                                 }
-                            }
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
+                    .padding(5)
                 }
             }
-            .padding()
         }
+        .padding()
         .onAppear {
             viewModel.fetchNews(query: "besiktas") // Varsayılan bir sorgu ile haberleri getir
         }
     }
 }
+
+
+
+
+

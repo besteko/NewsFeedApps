@@ -11,38 +11,43 @@ struct FavoritesView: View {
     @ObservedObject var viewModel: FavoritesViewModel
 
     var body: some View {
-        NavigationView {
-            VStack {
-                
-                Text("Favorites News")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color(hue: 0.054, saturation: 0.616, brightness: 0.845, opacity: 0.761))
-                    .multilineTextAlignment(.center)
-                    
-                
-                // Favori haber listesi
-                List(viewModel.favoriteNews, id: \.id) { newsItem in
-                    NavigationLink(destination: NewsDetailView(news: newsItem, viewModel: NewsViewModel(newsService: NewsService(), favoritesViewModel: FavoritesViewModel(), newsModel: newsItem), favoritesViewModel: FavoritesViewModel())) {
-                        NewsListItemView(news: newsItem)
+        VStack {
+            Text("Favorites News")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(Color(hue: 0.054, saturation: 0.616, brightness: 0.845, opacity: 0.761))
+                .multilineTextAlignment(.center)
+                .padding(.top)
+
+            ScrollView {
+                VStack {
+                    // Favori haber listesi
+                    LazyVStack(spacing: 0) {
+                        ForEach(viewModel.favoriteNews, id: \.id) { newsItem in
+                            NavigationLink(destination: NewsDetailView(news: newsItem, viewModel: NewsViewModel(newsService: NewsService(), favoritesViewModel: FavoritesViewModel(), newsModel: newsItem), favoritesViewModel: FavoritesViewModel())) {
+                                NewsListItemView(news: newsItem)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                        .padding()
+                    }
+
+                    // Favori haber yoksa gösterilecek metin
+                    if viewModel.favoriteNews.isEmpty {
+                        Text("Favori haber yok.")
+                            .font(.headline)
+                            .foregroundColor(Color.gray)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, 200.0)
                     }
                 }
                 .padding()
-
-                // Favori haber yoksa gösterilecek metin
-                if viewModel.favoriteNews.isEmpty {
-                    Text("Favori haber yok.")
-                        .font(.headline)
-                        .foregroundColor(Color.gray)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 200.0)
-                        
-                }
             }
-            .onAppear(perform: {
-                viewModel.populateFavoriteNews()
-            })
-           // .navigationBarTitle("Favoriler")
         }
+        .onAppear(perform: {
+            viewModel.populateFavoriteNews()
+        })
     }
 }
+
+

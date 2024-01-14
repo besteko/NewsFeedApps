@@ -13,7 +13,7 @@ struct NewsListItemView: View {
     var body: some View {
         HStack {
             // Haber başlığı ve açıklaması
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(news.title)
                     .font(.headline)
                     .fontWeight(.bold)
@@ -25,7 +25,7 @@ struct NewsListItemView: View {
                     .foregroundColor(.brown)
                     .lineLimit(3)
             }
-           // .layoutPriority(1) // İçeriğin sığmasını sağlamak için
+            .layoutPriority(1) // İçeriğin sığmasını sağlamak için
 
             // Haber resmi
             if let imageUrl = URL(string: news.imageUrl) {
