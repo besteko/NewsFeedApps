@@ -20,9 +20,11 @@ Bu uygulama, NewsAPI.org API'sini kullanarak haber akışı sağlayan bir iOS uy
 
 
 ## Ekran Görüntüleri
-![Simulator Screenshot - iPhone 14 Pro - 2024-01-14 at 17 07 17](https://github.com/besteko/NewsFeedApps/assets/78082138/c15a406b-1b6a-4cde-a617-48d9ed03cb83)
-![Simulator Screenshot - iPhone 14 Pro - 2024-01-14 at 17 07 24](https://github.com/besteko/NewsFeedApps/assets/78082138/182a78e7-85b2-443d-80b9-07a897579102)
-![Simulator Screenshot - iPhone 14 Pro - 2024-01-14 at 17 07 51](https://github.com/besteko/NewsFeedApps/assets/78082138/03d4fd6c-c42a-4388-86e8-6dddc91f423c)
+## Ekran Görüntüleri
+<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/c15a406b-1b6a-4cde-a617-48d9ed03cb83" width="300" height="600">
+<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/182a78e7-85b2-443d-80b9-07a897579102" width="300" height="600">
+<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/03d4fd6c-c42a-4388-86e8-6dddc91f423c" width="300" height="600">
+
 
 
 
