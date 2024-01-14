@@ -18,9 +18,12 @@ class NewsViewModel: ObservableObject {
     // For News Detail
     @Published var isFavorite: Bool = false
 
+    // İnit metodu, haber servisi ve favori haberlerin view modelini alır
+    // İsteğe bağlı olarak bir haber modeli de alabilir
     init(newsService: NewsService, favoritesViewModel: FavoritesViewModel, newsModel: NewsModel? = nil) {
         self.newsService = newsService
         self.favoritesViewModel = favoritesViewModel
+        // Eğer bir haber modeli varsa, favori durumu kontrol edilir
         if let newsModel {
             isFavorite = self.isFavoriteNews(news: newsModel)
         }
@@ -35,6 +38,7 @@ class NewsViewModel: ObservableObject {
         favoritesViewModel.isFavorite(news: news)
     }
 
+    // Haberleri belirli bir sorgu ile çeker
     func fetchNews(query: String) {
         guard !isFetching else { return }
         isFetching = true
@@ -50,6 +54,8 @@ class NewsViewModel: ObservableObject {
             self.isFetching = false
         }
     }
+    
+    // Bir sonraki sayfayı çeker
 
     func fetchNextPage(query: String) {
         guard !isFetching else { return }
@@ -59,6 +65,7 @@ class NewsViewModel: ObservableObject {
             guard let self = self else { return }
 
             if let newNews = result {
+                // Yeni haberler mevcut haberlere eklenir ve sayfa numarası güncellenir
                 self.news.append(contentsOf: newNews)
                 self.currentPage += 1
             }

@@ -11,6 +11,7 @@ import Combine
 class FavoritesViewModel: ObservableObject {
     @Published var favoriteNews: [NewsModel] = []
     
+    // Favori haberleri yerel depodan alıp view modelini dolduran fonksiyon
     func populateFavoriteNews(){
         favoriteNews = self.getFavoriteNewsFromLocal()
     }
@@ -42,6 +43,7 @@ class FavoritesViewModel: ObservableObject {
         }
     }
     
+    // Favori haberleri yerel depodan alıp döndüren fonksiyon
     func getFavoriteNewsFromLocal() -> [NewsModel] {
         if let savedData = UserDefaults.standard.data(forKey: "favoriteNews"),
            let decodedModel = try? JSONDecoder().decode([NewsModel].self, from: savedData) {
@@ -50,6 +52,8 @@ class FavoritesViewModel: ObservableObject {
         return []
     }
     
+    
+    // Favori haberleri yerel depoya kaydeden fonksiyon
     func setFavoriteNews(news: [NewsModel]) {
         let encoder = JSONEncoder()
         if let encodedData = try? encoder.encode(news) {

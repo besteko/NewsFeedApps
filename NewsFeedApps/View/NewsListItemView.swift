@@ -7,6 +7,8 @@
 import SwiftUI
 import URLImage
 
+
+// Haber listesi öğelerini temsil eden SwiftUI görünümü
 struct NewsListItemView: View {
     var news: NewsModel
 
@@ -37,7 +39,7 @@ struct NewsListItemView: View {
                         .cornerRadius(8)
                 }
             } else {
-                // Handle the case when imageUrl is nil
+                // imageUrl nil olduğunda uygulanacak durum
                 Color.gray
                     .frame(width: 80, height: 80)
                     .cornerRadius(8)

@@ -29,7 +29,7 @@ struct ContentView: View {
                 Text("Favorites")
             }
         }
-        .background(Color.white) // TabBar'ın arka plan rengini beyaz sarı yap
+        .background(Color.white) // TabBar'ın arka plan rengini beyaz yap
         .accentColor(.brown)
     }
 }

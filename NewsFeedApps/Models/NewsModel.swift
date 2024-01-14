@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Haber modelini temsil eden yapı
 struct NewsModel: Codable, Identifiable, Hashable {
     var id: UUID = UUID()
     var title: String
@@ -22,6 +23,7 @@ struct NewsModel: Codable, Identifiable, Hashable {
         hasher.combine(id)
     }
 
+    // İki haber modelini karşılaştırma
     static func == (lhs: NewsModel, rhs: NewsModel) -> Bool {
         return lhs.id == rhs.id
     }

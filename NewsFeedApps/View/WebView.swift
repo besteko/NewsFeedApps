@@ -8,6 +8,7 @@
 import SwiftUI
 import WebKit
 
+// SwiftUI ile UIKit'teki WKWebView'i kullanarak bir WebView oluşturan yapı
 struct WebView: UIViewRepresentable {
     let urlString: String
 
