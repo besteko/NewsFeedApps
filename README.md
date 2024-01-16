@@ -23,7 +23,8 @@ Bu uygulama, NewsAPI.org API'sini kullanarak haber akışı sağlayan bir iOS uy
 
 <img src="https://github.com/besteko/NewsFeedApps/assets/78082138/182a78e7-85b2-443d-80b9-07a897579102" width="300" height="600">
 
-<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/03d4fd6c-c42a-4388-86e8-6dddc91f423c" width="300" height="600">
+<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/b5ee66b8-cdbd-4520-96f0-58ac2f27e71c" width="300" height="600">
+
 
 
 
