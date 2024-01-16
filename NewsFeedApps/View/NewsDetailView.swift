@@ -102,7 +102,7 @@ struct NewsDetailView: View {
                 // Haberin orijinal kaynağına yönlendirme işlemi
                 isWebViewPresented.toggle()
             }) {
-                Text("Haber Kaynağına Git")
+                Text("News Source")
                     .foregroundColor(.white)
                     .padding()
                     .background(Color.brown)
