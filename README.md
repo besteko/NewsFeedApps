@@ -19,7 +19,8 @@ Bu uygulama, NewsAPI.org API'sini kullanarak haber akışı sağlayan bir iOS uy
 - **Alamofire:** Network işlemleri için Alamofire kütüphanesi kullanılmıştır.
 
 ## Ekran Görüntüleri
-<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/c15a406b-1b6a-4cde-a617-48d9ed03cb83" width="300" height="600">
+<img src="https://github.com/besteko/NewsFeedApps/assets/78082138/f7960e65-ded5-4d28-8fb5-cd769a43b632" width="300" height="600">
+
 
 <img src="https://github.com/besteko/NewsFeedApps/assets/78082138/182a78e7-85b2-443d-80b9-07a897579102" width="300" height="600">
 
